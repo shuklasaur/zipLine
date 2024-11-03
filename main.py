@@ -3,7 +3,7 @@ import os
 import hashlib
 import pandas as pd
 
-directory = "/dev"
+directory = "/mnt/devdrive"  #TODO: Modify Path before use
 
 files_and_dirs = glob.glob(directory + "/**/*.*", recursive=True)
 files = [file for file in files_and_dirs if os.path.isfile(file)]
