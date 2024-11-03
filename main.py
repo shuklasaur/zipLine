@@ -3,7 +3,7 @@ import os
 import hashlib
 import pandas as pd
 
-directory = "/mnt/devdrive"
+directory = "/dev"
 
 files_and_dirs = glob.glob(directory + "/**/*.*", recursive=True)
 files = [file for file in files_and_dirs if os.path.isfile(file)]
@@ -24,6 +24,6 @@ for file in files:
 df = pd.DataFrame({"filename": file_hash_dict.keys(), "hash": file_hash_dict.values()})
 
 # print(df.hash.unique())
-print(df)r
+print(df)
 
 # print(file_hash_dict)
