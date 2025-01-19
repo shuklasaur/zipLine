@@ -2,9 +2,9 @@ import glob
 import os
 import hashlib
 import pandas as pd
-
+ 
 directory = "."  #TODO: Modify Path before use
-
+ 
 print("app started")
 files_and_dirs = glob.glob(directory + "/**/*.*", recursive=True)
 files = [file for file in files_and_dirs if os.path.isfile(file)]
