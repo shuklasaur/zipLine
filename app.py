@@ -10,7 +10,13 @@ app = Flask(__name__)
 def index():
     return 'Hello, From the children of Planet Earth'
 
+@app.route('/login')
+def login():
+    return 'login screen'
 
+@app.route('/signup')
+def signup():
+    return 'signup screen.'
 
 # directory = "."  #TODO: Modify Path before use
  
