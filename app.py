@@ -2,46 +2,38 @@ import glob
 import os
 import hashlib
 import pandas as pd
- 
-from flask import Flask
-app = Flask(__name__)
 
-@app.route('/')
+import flask 
+
+app = flask.Flask(__name__)
+
+
+@app.route("/")
 def index():
-    return 'Hello, From the children of Planet Earth'
+    return flask.redirect("/welcome")
 
-@app.route('/login')
+
+@app.route("/welcome")
+def welcome():
+    # TODO: create welcome screen
+    return "Hello, From the children of Planet Earth"
+
+
+@app.route("/welcome/login")
 def login():
-    return 'login screen'
+    # TODO: create login screen
+    return "login screen"
 
-@app.route('/signup')
+
+@app.route("/welcome/signup")
 def signup():
-    return 'signup screen.'
+    # TODO: create signup screen
+    return "signup screen."
 
-# directory = "."  #TODO: Modify Path before use
- 
-# print("app started")
-# files_and_dirs = glob.glob(directory + "/**/*.*", recursive=True)
-# files = [file for file in files_and_dirs if os.path.isfile(file)]
-# hashSet = set()
-# file_hash_dict = {}
+@app.route("/post/image",methods=["POST"])
+def postimage():
 
+    print(flask.request.files.get("image"))
+    flask.request.files.get("image").save(f"testData/new-{flask.request.files.get('image').filename}")
 
-# i = 0
-
-# for file in files:
-#     i = i + 1
-#     print(file)
-#     # print(open(file,'rb').read(1024*1024))
-#     hashSet.add(hashlib.sha256(open(file, "rb").read(1024 * 1024)).hexdigest())
-#     file_hash_dict[file] = (hashlib.sha256(open(file, "rb").read(1024 * 1024)).hexdigest())
-
-
-# df = pd.DataFrame({"filename": file_hash_dict.keys(), "hash": file_hash_dict.values()})
-
-# # print(df.hash.unique())
-# print(df)
-
-# print("app ended")
-
-# # print(file_hash_dict)
+    return 'GOOD'
